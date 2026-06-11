@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-50: hsl(221.17deg 77.05% 72%);
+  --primary-250: hsl(221.17deg 77.05% 60%);
+  --primary-500: hsl(221deg 77.05% 52.16%);
+  --primary-750: hsl(221deg 77.05% 42%);
+  --primary-950: hsl(221deg 77.05% 32%);
+  --primary-ghost-250: hsl(221deg 77.05% 62% / 0.25);
+  --primary-ghost-500: hsl(221deg 77.05% 52.16% / 0.25);
+  --primary-ghost-750: hsl(221deg 77.05% 42% / 0.25);
+  --neutral-25: hsl(221deg 8% 4%);
+  --neutral-50: hsl(221deg 8% 7.06%);
+  --neutral-100: hsl(221deg 7% 10%);
+  --neutral-150: hsl(221deg 6% 12%);
+  --neutral-200: hsl(221deg 6% 16%);
+  --neutral-ghost-50: hsl(221deg 11.11% 7.06% / 0.25);
+  --neutral-ghost-250: hsl(221deg 6% 28% / 0.25);
+  --neutral-ghost-450: hsl(221deg 6% 59% / 0.25);
+  --on-neutral-450: hsl(221deg 6% 59%);
+  --on-neutral-900: hsl(216deg 6.49% 84.9%);
+  --on-neutral-950: hsl(0deg 0% 100%);
+  --on-success-500: hsl(0deg 0% 0%);
+  --on-primary-500: hsl(0deg 0% 100%);
+  --on-error-500: hsl(0deg 0% 100%);
+  --success-975: hsl(146deg 77.05% 22%);
+  --success-950: hsl(146deg 77.05% 32%);
+  --success-750: hsl(146deg 77.05% 42%);
+  --success-600: hsl(146deg 77.05% 46%);
+  --success-500: hsl(146deg 77.05% 52.16%);
+  --success-250: hsl(146deg 77.05% 62%);
+  --success-50: hsl(146deg 77.05% 72%);
+  --success-ghost-250: hsl(146deg 77.32% 61.96% / 0.25);
+  --success-ghost-500: hsl(145.85deg 77.05% 52.16% / 0.25);
+  --success-ghost-750: hsl(146deg 77.05% 42% / 0.25);
+  --error-950: hsl(352deg 77.05% 32%);
+  --error-750: hsl(352deg 77.05% 42%);
+  --error-500: hsl(352deg 77.05% 52.16%);
+  --error-250: hsl(352deg 77.05% 58%);
+  --error-50: hsl(352deg 77.05% 72%);
+  --error-ghost-500: hsl(352deg 77.05% 52.16% / 0.25);
+  --error-ghost-250: hsl(352deg 77.05% 62% / 0.25);
+
+  --text-medium: 16px;
+  --text-medium--line-height: normal;
+  --text-medium--letter-spacing: 0em;
+  --text-medium--font-weight: Semi Bold;
+
+  --text-title: 22px;
+  --text-title--line-height: normal;
+  --text-title--letter-spacing: 0em;
+  --text-title--font-weight: Medium;
+
+  --text-header: 18px;
+  --text-header--line-height: normal;
+  --text-header--letter-spacing: 0em;
+  --text-header--font-weight: Medium;
+}
+
+.text-label {
+  @apply text-[12px] font-medium tracking-normal leading-normal font-inter;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-inter: var(--font-inter);
+  --radius-20: 1.3rem;
+  --radius-8: 0.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
