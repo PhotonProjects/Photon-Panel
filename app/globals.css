@@ -23,6 +23,7 @@
   --on-success-500: hsl(0deg 0% 0%);
   --on-primary-500: hsl(0deg 0% 100%);
   --on-error-500: hsl(0deg 0% 100%);
+  --on-warning-500: hsl(0deg 0% 100%);
   --success-975: hsl(146deg 77.05% 22%);
   --success-950: hsl(146deg 77.05% 32%);
   --success-750: hsl(146deg 77.05% 42%);
@@ -40,6 +41,11 @@
   --error-50: hsl(352deg 77.05% 72%);
   --error-ghost-500: hsl(352deg 77.05% 52.16% / 0.25);
   --error-ghost-250: hsl(352deg 77.05% 62% / 0.25);
+  --warning-950: hsl(39deg 77.05% 32%);
+  --warning-750: hsl(39deg 77.05% 42%);
+  --warning-500: hsl(39deg 77.05% 52.16%);
+  --warning-250: hsl(39deg 77.05% 58%);
+  --warning-50: hsl(39deg 77.05% 72%);
 
   --text-medium: 16px;
   --text-medium--line-height: normal;
@@ -68,5 +74,24 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), "JetBrains Mono", "Courier New", monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-150);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-250);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-450);
 }
