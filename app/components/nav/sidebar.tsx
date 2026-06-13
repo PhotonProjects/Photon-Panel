@@ -9,7 +9,9 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 					className="h-full"
 				/>
 			</div>
-			<div className="flex flex-col gap-0.5">{children}</div>
+			<div className="flex flex-col gap-0.5 overflow-y-auto min-h-0 flex-1 scrollbar-thumb-(--neutral-200) scrollbar-track-transparent scrollbar-thin">
+				{children}
+			</div>
 		</div>
 	);
 }

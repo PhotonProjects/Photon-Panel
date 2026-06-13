@@ -6,10 +6,12 @@ import { useState } from "react";
 
 export default function Button({
 	primary = false,
+	filledicon = false,
 	value,
 	icon = "",
 }: {
 	primary?: Boolean,
+	filledicon?: Boolean,
 	value: String,
 	icon?: String,
 }) {
@@ -30,7 +32,7 @@ export default function Button({
 		>
 			{icon !== "" && (
 				<Icon
-					filled={hovered}
+					filled={filledicon === true ? hovered : null}
 					icon={icon}
 					size="18"
 					className={clsx(

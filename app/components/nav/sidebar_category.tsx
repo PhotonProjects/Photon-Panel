@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import clsx from "clsx/lite";
 import Icon from "../interface/icon";
 
@@ -12,6 +12,17 @@ export default function SidebarCategory({
 	children: React.ReactNode,
 }) {
 	const [expanded, setExpanded] = useState(true);
+	const [contentHeight, setContentHeight] = useState(0);
+	const contentRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (contentRef) {
+			setContentHeight(contentRef.current?.scrollHeight ?? -1)
+			console.info(contentHeight)
+		} else {
+			console.error("NO CONTENT REF !!!!!!!")
+		}
+	}, []);
 
 	return (
 		<>
@@ -27,7 +38,21 @@ export default function SidebarCategory({
 					expanded && "rotate-90"
 				)} />
 			</button>
-			<div className={clsx("overflow-hidden transition-all duration-150", expanded ? "max-h-50" : "max-h-0")}>
+			<div
+				ref={contentRef}
+				className={clsx("transition-all duration-250 overflow-hidden", expanded
+					? "pointer-events-auto"
+					: "pointer-events-none"
+				)}
+				style={{
+					minHeight: expanded
+						? contentHeight + "px"
+						: "0px",
+					maxHeight: expanded
+						? contentHeight + "px"
+						: "0px",
+				}}
+			>
 				{children}
 			</div>
 		</>
