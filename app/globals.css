@@ -67,6 +67,10 @@
   @apply text-[12px] font-medium tracking-normal leading-normal font-inter;
 }
 
+.text-medium {
+  @apply text-[14.5px] font-semibold tracking-normal leading-4 font-inter;
+}
+
 @theme inline {
   --font-inter: var(--font-inter);
   --radius-20: 1.3rem;
