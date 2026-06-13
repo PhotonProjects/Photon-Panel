@@ -10,10 +10,10 @@ export default function Button({
 	value,
 	icon = "",
 }: {
-	primary?: Boolean,
-	filledicon?: Boolean,
-	value: String,
-	icon?: String,
+	primary?: boolean,
+	filledicon?: boolean,
+	value: string,
+	icon?: string,
 }) {
 	const [hovered, setHovered] = useState(false);
 

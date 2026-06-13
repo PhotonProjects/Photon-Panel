@@ -8,10 +8,10 @@ export default function Icon({
     size,
     className = ""
 }: {
-    filled?: Boolean | null,
-    icon: String,
-    size: String,
-    className?: String
+    filled?: boolean | null,
+    icon: string,
+    size: string,
+    className?: string
 }) {
     const SvgIcon = require(`@/public/icons/${icon}.svg`).default
     if (filled !== null) {

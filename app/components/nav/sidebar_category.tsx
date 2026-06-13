@@ -8,7 +8,7 @@ export default function SidebarCategory({
 	name,
 	children,
 }: {
-	name: String,
+	name: string,
 	children: React.ReactNode,
 }) {
 	const [expanded, setExpanded] = useState(true);
@@ -17,10 +17,7 @@ export default function SidebarCategory({
 
 	useEffect(() => {
 		if (contentRef) {
-			setContentHeight(contentRef.current?.scrollHeight ?? -1)
-			console.info(contentHeight)
-		} else {
-			console.error("NO CONTENT REF !!!!!!!")
+			setContentHeight(contentRef.current?.scrollHeight ?? 0)
 		}
 	}, []);
 
