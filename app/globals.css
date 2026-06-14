@@ -17,6 +17,7 @@
   --neutral-ghost-50: hsl(221deg 11.11% 7.06% / 0.25);
   --neutral-ghost-250: hsl(221deg 6% 28% / 0.25);
   --neutral-ghost-450: hsl(221deg 6% 59% / 0.25);
+  --on-neutral-350: hsl(221deg 6% 45%);
   --on-neutral-450: hsl(221deg 6% 59%);
   --on-neutral-900: hsl(216deg 6.49% 84.9%);
   --on-neutral-950: hsl(0deg 0% 100%);
@@ -46,21 +47,6 @@
   --warning-500: hsl(39deg 77.05% 52.16%);
   --warning-250: hsl(39deg 77.05% 58%);
   --warning-50: hsl(39deg 77.05% 72%);
-
-  --text-medium: 16px;
-  --text-medium--line-height: normal;
-  --text-medium--letter-spacing: 0em;
-  --text-medium--font-weight: Semi Bold;
-
-  --text-title: 22px;
-  --text-title--line-height: normal;
-  --text-title--letter-spacing: 0em;
-  --text-title--font-weight: Medium;
-
-  --text-header: 18px;
-  --text-header--line-height: normal;
-  --text-header--letter-spacing: 0em;
-  --text-header--font-weight: Medium;
 }
 
 .text-label {
@@ -68,7 +54,7 @@
 }
 
 .text-medium {
-  @apply text-[14.5px] font-semibold tracking-normal leading-4 font-inter;
+  @apply text-[14.5px] font-medium tracking-normal leading-4 font-inter;
 }
 
 @theme inline {

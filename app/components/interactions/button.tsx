@@ -2,18 +2,21 @@
 
 import clsx from "clsx/lite";
 import Icon from "../interface/icon";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { SidebarContext } from "../nav/sidebarContext";
 
 export default function Button({
 	primary = false,
 	filledicon = false,
-	value,
+	value = "",
 	icon = "",
+	onClick = () => {},
 }: {
 	primary?: boolean,
 	filledicon?: boolean,
-	value: string,
+	value?: string,
 	icon?: string,
+	onClick?: () => void,
 }) {
 	const [hovered, setHovered] = useState(false);
 
@@ -24,11 +27,20 @@ export default function Button({
 	const borderColor =
 		primary ? "border-1 border-(--primary-500) hover:border-(--primary-250)" : "border-1 border-transparent hover:border-(--neutral-ghost-250)";
 
+	const {sideBarExpanded, inSideBar} = useContext(SidebarContext);
+
 	return (
 		<button
-			className={clsx("rounded-8 py-2.75 px-2.75 gap-3 flex group transition-all duration-150 w-full", borderColor, backgroundColor)}
+			className={clsx(
+				"rounded-8 py-2.75 px-2.75 gap-3 flex group transition-all duration-150", 
+				borderColor, 
+				backgroundColor,
+				inSideBar && "w-full"
+			)}
+			title={!sideBarExpanded ? value : undefined}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
+			onClick={onClick}
 		>
 			{icon !== "" && (
 				<Icon
@@ -41,9 +53,15 @@ export default function Button({
 					)}
 				/>
 			)}
-			<p className={clsx("text-medium", textColor)}>
-				{value}
-			</p>
+			{value !== "" && (
+				<p className={clsx(
+					"text-medium transition-opacity duration-150", 
+					textColor,
+					!sideBarExpanded && "opacity-0"
+				)}>
+					{value}
+				</p>
+			)}
 		</button>
 	);
 }

@@ -6,12 +6,14 @@ export default function Icon({
     filled = null,
     icon,
     size,
-    className = ""
+    className = "",
+    style = {}
 }: {
     filled?: boolean | null,
     icon: string,
     size: string,
-    className?: string
+    className?: string,
+    style?: React.CSSProperties
 }) {
     const SvgIcon = require(`@/public/icons/${icon}.svg`).default
     if (filled !== null) {
@@ -21,15 +23,17 @@ export default function Icon({
     return (
         <div className="grid">
             <SvgIcon
-                className={clsx("[grid-area:1/1]", className, filled ? "opacity-0" : "opacity-100")}
+                className={clsx("[grid-area:1/1]", filled !== null && (filled ? "opacity-0" : "opacity-100"), className)}
                 width={size}
                 height={size}
+                style={style}
             />
             {filled !== null && (
                 <SvgIconFilled
-                    className={clsx("[grid-area:1/1]", className, filled ? "opacity-100" : "opacity-0")}
+                    className={clsx("[grid-area:1/1]", filled ? "opacity-100" : "opacity-0", className)}
                     width={size}
                     height={size}
+                    style={style}
                 />
             )}
         </div>
