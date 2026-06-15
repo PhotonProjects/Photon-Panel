@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} h-full antialiased bg-(--neutral-50)`}
+      className={`${inter.variable} h-full antialiased bg-neutral-900`}
     >
-      <body className="h-dvh flex flex-col p-4">{children}</body>
+      <body className="h-dvh flex flex-col p-menus gap-menus">{children}</body>
     </html>
   );
 }

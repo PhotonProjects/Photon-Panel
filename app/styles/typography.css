@@ -1,0 +1,7 @@
+.text-label {
+  @apply text-[13px] font-medium tracking-normal leading-normal font-inter;
+}
+
+.text-medium {
+  @apply text-[14.5px] font-medium tracking-normal leading-4 font-inter;
+}

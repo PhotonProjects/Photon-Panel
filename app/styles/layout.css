@@ -1,0 +1,8 @@
+@layer base {
+  :root {
+    --menus-spacing: 1rem;
+    --menus-radius: 1.3rem;
+    --content-spacing: 0.75rem;
+    --content-radius: 0.5rem;
+  }
+}

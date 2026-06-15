@@ -3,7 +3,7 @@
 import clsx from "clsx/lite";
 import Icon from "../interface/icon";
 import { useContext, useState } from "react";
-import { SidebarContext } from "../nav/sidebarContext";
+import { ButtonContext } from "./buttonContext";
 
 export default function Button({
 	primary = false,
@@ -21,47 +21,43 @@ export default function Button({
 	const [hovered, setHovered] = useState(false);
 
 	const textColor =
-		primary ? "text-(--primary-250)" : "text-(--on-neutral-950)";
+		primary ? "text-primary-400 group-hover:text-primary-300" : "text-text-100";
 	const backgroundColor =
-		primary ? "bg-(--primary-ghost-500) hover:bg-(--primary-ghost-250)" : "hover:bg-(--neutral-ghost-250)";
+		primary ? "bg-primary-500/25 hover:bg-primary-400/25" : "hover:bg-neutral-400/25";
 	const borderColor =
-		primary ? "border-1 border-(--primary-500) hover:border-(--primary-250)" : "border-1 border-transparent hover:border-(--neutral-ghost-250)";
+		primary ? "border-1 border-primary-500 hover:border-primary-400" : "border border-transparent hover:border-neutral-400/25";
 
-	const {sideBarExpanded, inSideBar} = useContext(SidebarContext);
+	const {fillWholeWidth} = useContext(ButtonContext);
 
 	return (
 		<button
 			className={clsx(
-				"rounded-8 py-2.75 px-2.75 gap-3 flex group transition-all duration-150", 
+				"rounded-content p-content gap-content flex items-center group", 
 				borderColor, 
 				backgroundColor,
-				inSideBar && "w-full"
+				fillWholeWidth && "w-full"
 			)}
-			title={!sideBarExpanded ? value : undefined}
+			title={undefined}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			onClick={onClick}
 		>
-			{icon !== "" && (
+			{icon && 
 				<Icon
 					filled={filledicon === true ? hovered : null}
 					icon={icon}
 					size="18"
-					className={clsx(
-						"transition-all duration-150",
-						textColor
-					)}
+					className={textColor}
 				/>
-			)}
-			{value !== "" && (
+			}
+			{value && 
 				<p className={clsx(
-					"text-medium transition-opacity duration-150", 
-					textColor,
-					!sideBarExpanded && "opacity-0"
+					"text-medium",
+					textColor
 				)}>
 					{value}
 				</p>
-			)}
+			}
 		</button>
 	);
 }

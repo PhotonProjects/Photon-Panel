@@ -1,87 +1,46 @@
 @import "tailwindcss";
-
-:root {
-  --primary-50: hsl(221.17deg 77.05% 72%);
-  --primary-250: hsl(221.17deg 77.05% 60%);
-  --primary-500: hsl(221deg 77.05% 52.16%);
-  --primary-750: hsl(221deg 77.05% 42%);
-  --primary-950: hsl(221deg 77.05% 32%);
-  --primary-ghost-250: hsl(221deg 77.05% 62% / 0.25);
-  --primary-ghost-500: hsl(221deg 77.05% 52.16% / 0.25);
-  --primary-ghost-750: hsl(221deg 77.05% 42% / 0.25);
-  --neutral-25: hsl(221deg 8% 4%);
-  --neutral-50: hsl(221deg 8% 7.06%);
-  --neutral-100: hsl(221deg 7% 10%);
-  --neutral-150: hsl(221deg 6% 12%);
-  --neutral-200: hsl(221deg 6% 16%);
-  --neutral-ghost-50: hsl(221deg 11.11% 7.06% / 0.25);
-  --neutral-ghost-250: hsl(221deg 6% 28% / 0.25);
-  --neutral-ghost-450: hsl(221deg 6% 59% / 0.25);
-  --on-neutral-350: hsl(221deg 6% 45%);
-  --on-neutral-450: hsl(221deg 6% 59%);
-  --on-neutral-900: hsl(216deg 6.49% 84.9%);
-  --on-neutral-950: hsl(0deg 0% 100%);
-  --on-success-500: hsl(0deg 0% 0%);
-  --on-primary-500: hsl(0deg 0% 100%);
-  --on-error-500: hsl(0deg 0% 100%);
-  --on-warning-500: hsl(0deg 0% 100%);
-  --success-975: hsl(146deg 77.05% 22%);
-  --success-950: hsl(146deg 77.05% 32%);
-  --success-750: hsl(146deg 77.05% 42%);
-  --success-600: hsl(146deg 77.05% 46%);
-  --success-500: hsl(146deg 77.05% 52.16%);
-  --success-250: hsl(146deg 77.05% 62%);
-  --success-50: hsl(146deg 77.05% 72%);
-  --success-ghost-250: hsl(146deg 77.32% 61.96% / 0.25);
-  --success-ghost-500: hsl(145.85deg 77.05% 52.16% / 0.25);
-  --success-ghost-750: hsl(146deg 77.05% 42% / 0.25);
-  --error-950: hsl(352deg 77.05% 32%);
-  --error-750: hsl(352deg 77.05% 42%);
-  --error-500: hsl(352deg 77.05% 52.16%);
-  --error-250: hsl(352deg 77.05% 58%);
-  --error-50: hsl(352deg 77.05% 72%);
-  --error-ghost-500: hsl(352deg 77.05% 52.16% / 0.25);
-  --error-ghost-250: hsl(352deg 77.05% 62% / 0.25);
-  --warning-950: hsl(39deg 77.05% 32%);
-  --warning-750: hsl(39deg 77.05% 42%);
-  --warning-500: hsl(39deg 77.05% 52.16%);
-  --warning-250: hsl(39deg 77.05% 58%);
-  --warning-50: hsl(39deg 77.05% 72%);
-}
-
-.text-label {
-  @apply text-[12px] font-medium tracking-normal leading-normal font-inter;
-}
-
-.text-medium {
-  @apply text-[14.5px] font-medium tracking-normal leading-4 font-inter;
-}
+@import "./styles/colors.css";
+@import "./styles/layout.css";
+@import "./styles/typography.css";
 
 @theme inline {
   --font-inter: var(--font-inter);
-  --radius-20: 1.3rem;
-  --radius-8: 0.5rem;
-}
 
-body {
-  font-family: var(--font-inter), "JetBrains Mono", "Courier New", monospace;
-}
+  /*            Colors            */
+  --color-*: initial;
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+  /* Primary */
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
 
-::-webkit-scrollbar-track {
-  background: var(--neutral-150);
-}
+  /* Neutral */
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
 
-::-webkit-scrollbar-thumb {
-  background: var(--neutral-250);
-  border-radius: 4px;
-}
+  /* Text */
+  --color-text-100: var(--text-100);
+  --color-text-250: var(--text-250);
+  --color-text-500: var(--text-500);
+  --color-text-750: var(--text-750);
+  --color-text-900: var(--text-900);
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--neutral-450);
+  /*            Layout            */
+  --radius-menus: var(--menus-radius);
+  --radius-content: var(--content-radius);
+  --spacing-menus: var(--menus-spacing);
+  --spacing-content: var(--content-spacing);
 }
