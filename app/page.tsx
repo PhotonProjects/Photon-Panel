@@ -1,8 +1,19 @@
+"use client";
+
+import { useEffect } from "react";
 import Button from "./components/interactions/button";
 import Sidebar from "./components/nav/sidebar";
 import SidebarCategory from "./components/nav/sidebarCategory";
 
 export default function Home() {
+	useEffect(() => {
+		const isFirefox = navigator.userAgent.toLowerCase().includes("firefox")
+		console.log(isFirefox)
+		if (isFirefox) {
+			document.documentElement.style.setProperty("--scrollbar-width", "6px");
+		}
+	}, []);
+
 	return (
 		<Sidebar>
 			<SidebarCategory name="overview">

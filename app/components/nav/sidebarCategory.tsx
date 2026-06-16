@@ -28,7 +28,7 @@ export default function SidebarCategory({
 					expanded && "rotate-90"
 				)} />
 			</button>
-			<div className="overflow-hidden">
+			<div className="">
 				{children}
 			</div>
 		</>
