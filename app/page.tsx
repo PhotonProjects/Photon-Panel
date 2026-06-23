@@ -17,7 +17,7 @@ export default function Home() {
 	return (
 		<Sidebar>
 			<SidebarCategory name="overview">
-				<Button primary value="Dashboard" icon={"Console" + "Filled"} />
+				<Button primary outlined value="Dashboard" icon={"Console" + "Filled"} />
 			</SidebarCategory>
 			<SidebarCategory name="files">
 				<Button filledicon value="Files" icon="Folder" />

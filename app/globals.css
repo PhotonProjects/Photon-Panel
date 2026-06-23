@@ -38,9 +38,21 @@
   --color-text-750: var(--text-750);
   --color-text-900: var(--text-900);
 
+  /* On-* */
+  --color-on-primary: var(--on-primary);
+
   /*            Layout            */
   --radius-menus: var(--menus-radius);
   --radius-content: var(--content-radius);
   --spacing-menus: var(--menus-spacing);
   --spacing-content: var(--content-spacing);
+
+  /* Testing */
+  --color-red: #FF0000;
+}
+
+@layer base {
+  :focus-visible {
+    @apply inset-ring-2 inset-ring-primary-600;
+  }
 }

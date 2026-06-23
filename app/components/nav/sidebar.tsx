@@ -26,13 +26,15 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 
 				</div>
 			</div>
-			<div ref={scrollRef} className={clsx(
-				"flex flex-col gap-0.5 overflow-y-auto overflow-x-hidden flex-1 scrollbar-thumb-text-500 scrollbar-track-transparent justify-stretch scrollbar-thin w-full",
-				isScrollbar && "pr-(--scrollbar-width)"
-			)}>
-				<ButtonContext.Provider value={{ fillWholeWidth: true }}>
-					{children}
-				</ButtonContext.Provider>
+			<div className="relative w-full flex-1 overflow-y-clip">
+				<div ref={scrollRef} className={clsx(
+					"absolute inset-0 flex flex-col gap-0.5 overflow-y-scroll scrollbar-thumb-text-500 scrollbar-track-transparent justify-stretch scrollbar-thin",
+					isScrollbar && "pr-(--scrollbar-width)"
+				)}>
+					<ButtonContext.Provider value={{ fillWholeWidth: true }}>
+						{children}
+					</ButtonContext.Provider>
+				</div>
 			</div>
 			<Button icon="LayoutOpen" onClick={() => setSidebarExpanded(!sideBarExpanded)} />
 		</div>

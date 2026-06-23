@@ -2,7 +2,7 @@
   :root {
     --primary-hue: 265deg;
     --primary-saturation: 81%;
-    --primary-lightness-multiply: 1.05;
+    --primary-lightness-multiply: 1.18;
 
     --neutral-saturation: 7%;
     --neutral-lightness-multiply: 1.0;
@@ -84,5 +84,8 @@
     --text-900: hsl(var(--primary-hue) var(--text-saturation) 
       calc(31% * var(--text-lightness-multiply))
     );
+
+    /* On-* */
+    --on-primary: contrast-color(var(--primary-500));
   }
 }

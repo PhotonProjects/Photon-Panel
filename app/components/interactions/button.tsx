@@ -1,40 +1,65 @@
 "use client";
 
-import clsx from "clsx/lite";
+import clsx from "clsx";
 import Icon from "../interface/icon";
 import { useContext, useState } from "react";
 import { ButtonContext } from "./buttonContext";
 
 export default function Button({
 	primary = false,
+	success = false,
+	danger = false,
+
+	filled = false,
+	outlined = false,
+
 	filledicon = false,
 	value = "",
 	icon = "",
 	onClick = () => {},
 }: {
 	primary?: boolean,
+	success?: boolean,
+	danger?: boolean,
+
+	filled?: boolean,
+	outlined?: boolean,
+
 	filledicon?: boolean,
 	value?: string,
 	icon?: string,
 	onClick?: () => void,
 }) {
+	const color = primary ? "primary" : success ? "success" : danger ? "danger" : "neutral";
+	const variant = filled ? "filled" : outlined ? "outlined" : "transparent";
+
 	const [hovered, setHovered] = useState(false);
-
-	const textColor =
-		primary ? "text-primary-400 group-hover:text-primary-300" : "text-text-100";
-	const backgroundColor =
-		primary ? "bg-primary-500/25 hover:bg-primary-400/25" : "hover:bg-neutral-400/25";
-	const borderColor =
-		primary ? "border-1 border-primary-500 hover:border-primary-400" : "border border-transparent hover:border-neutral-400/25";
-
 	const {fillWholeWidth} = useContext(ButtonContext);
+
+	const buttonStyle = [
+		(variant === "filled" && color == "primary") 			&& "inset-ring inset-ring-transparent bg-primary-500 hover:bg-primary-400 hover:inset-ring-primary-400",
+		(variant === "filled" && color == "success" )			&& "",
+		(variant === "filled" && color == "danger") 			&& "",
+		(variant === "outlined" && color == "primary")			&& "inset-ring inset-ring-primary-500 bg-primary-600/25 hover:bg-primary-500/25 hover:inset-ring-primary-400 hover:inset-ring-2 focus-visible:ring-2 focus-visible:ring-primary-500/50",
+		(variant === "outlined" && color == "success") 			&& "",
+		(variant === "outlined" && color == "danger") 			&& "",
+		(variant === "transparent" && color == "neutral")		&& "inset-ring inset-ring-transparent hover:bg-neutral-400/25 hover:inset-ring-neutral-400/25",
+	];
+	const contentStyle = [
+		(variant === "filled" && color == "primary") 			&& "text-on-primary",
+		(variant === "filled" && color == "success" )			&& "",
+		(variant === "filled" && color == "danger") 			&& "",
+		(variant === "outlined" && color == "primary")			&& "text-primary-400 group-hover:text-primary-300",
+		(variant === "outlined" && color == "success") 			&& "",
+		(variant === "outlined" && color == "danger") 			&& "",
+		(variant === "transparent" && color == "neutral")		&& "text-text-100",
+	];
 
 	return (
 		<button
 			className={clsx(
 				"rounded-content p-content gap-content flex items-center group", 
-				borderColor, 
-				backgroundColor,
+				buttonStyle,
 				fillWholeWidth && "w-full"
 			)}
 			title={undefined}
@@ -47,13 +72,13 @@ export default function Button({
 					filled={filledicon === true ? hovered : null}
 					icon={icon}
 					size="18"
-					className={textColor}
+					className={clsx(contentStyle)}
 				/>
 			}
 			{value && 
 				<p className={clsx(
 					"text-medium",
-					textColor
+					contentStyle
 				)}>
 					{value}
 				</p>
