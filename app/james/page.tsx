@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-import Button from "./components/interactions/button";
-import Sidebar from "./components/nav/sidebar";
-import SidebarCategory from "./components/nav/sidebarCategory";
+import Button from "../components/interactions/button";
+import Sidebar from "../components/nav/sidebar";
+import SidebarCategory from "../components/nav/sidebarCategory";
 
 export default function Home() {
 	useEffect(() => {
