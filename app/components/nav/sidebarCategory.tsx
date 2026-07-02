@@ -17,7 +17,7 @@ export default function SidebarCategory({
 		<>
 			<button
 				onClick={() => setExpanded(!expanded)}
-				className="flex group items-center justify-between px-1.5 py-content rounded-content border hover:bg-neutral-400/25 border-transparent hover:border-neutral-400/25"
+				className="flex group items-center justify-between px-1.5 py-content rounded-content inset-ring inset-ring-transparent hover:bg-neutral-400/25 hover:inset-ring-neutral-400/25"
 			>
 				<p className="text-label text-text-750 uppercase group-hover:text-text-100">
 					{name}

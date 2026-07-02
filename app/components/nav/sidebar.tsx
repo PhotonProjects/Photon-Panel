@@ -14,7 +14,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 	return (
 		<div
 			className={clsx(
-				"h-full bg-neutral-700 rounded-menus border border-neutral-600 p-content flex flex-col gap-3 transition-all duration-250 items-end",
+				"h-full bg-neutral-700 rounded-menus inset-ring inset-ring-neutral-600 p-content flex flex-col gap-3 transition-all duration-250 items-end",
 				sideBarExpanded ? "w-66" : "w-16.5"
 			)}
 		>
