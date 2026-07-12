@@ -70,7 +70,7 @@ export default function Button({
 		<button
 			className={clsx(
 				"rounded-content p-content gap-content flex items-center group transition-all duration-250",
-				inSidebar && !isExpanded && "justify-center aspect-square size-10.5 p-0",
+				inSidebar && !isExpanded && "justify-center aspect-square size-[var(--shell-sidebar-toggle-size)] p-0",
 				buttonStyle,
 				fillWholeWidth && "w-full",
 				className

@@ -12,14 +12,14 @@ export default function UserInfo({
     profileImageSrc: string;
 }) {
     return (
-        <div className="flex items-center gap-3">
-            <div className="flex flex-col items-end gap-1">
+        <div className="flex items-center gap-[var(--user-info-gap)]">
+            <div className="flex flex-col items-end gap-[var(--user-info-text-gap)]">
                 <p className="text-medium text-text-100">{username}</p>
-                <span className="inline-flex h-[18px] w-fit items-center self-end rounded-[5px] border border-[1px] border-[#1283D9] bg-[none] px-2.5 text-label text-[#39A0EF]">
+                <span className="inline-flex h-[var(--role-tag-height)] w-fit items-center self-end rounded-[var(--role-tag-radius)] border border-[var(--role-tag-border-width)] border-role-tag-outline bg-role-tag-background px-[var(--role-tag-padding-x)] text-label text-role-tag-text">
                     {role}
                 </span>
             </div>
-            <div className="relative size-10 overflow-hidden rounded-[8px]">
+            <div className="relative size-[var(--user-avatar-size)] overflow-hidden rounded-[var(--user-avatar-radius)]">
                 <Image
                     src={profileImageSrc}
                     alt={`${username} profile`}

@@ -5,12 +5,12 @@ import UserInfo from "../interface/userInfo";
 
 export default function Topbar() {
     return (
-        <header className="ml-[15px] mr-4 flex h-16 items-center justify-between rounded-[20px] border border-[#141316] bg-surface-background pl-3 pr-3">
+        <header className="mt-[var(--topbar-margin-top)] ml-[var(--topbar-margin-left)] mr-[var(--topbar-margin-right)] flex h-[var(--topbar-height)] items-center justify-between rounded-[var(--topbar-radius)] border border-[color:var(--surface-outline)] bg-surface-background pl-[var(--topbar-home-offset)] pr-[var(--topbar-user-offset)]">
             <Button
                 icon="Home"
                 ariaLabel="Go to home"
                 title="Home"
-                className="size-10.5 justify-center bg-[#151419] p-0 hover:bg-[#1A191D]"
+                className="size-[var(--topbar-home-button-size)] justify-center bg-surface-subtle-background p-0 hover:bg-surface-subtle-background-hover"
             />
             <UserInfo
                 username="Jamesfrench"

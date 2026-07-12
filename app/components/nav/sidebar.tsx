@@ -22,14 +22,15 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 		<SidebarContext.Provider value={{ isExpanded, inSidebar: true, toggleSidebar }}>
 			<div
 				className={clsx(
-					"h-full bg-surface-background rounded-menus inset-ring inset-ring-neutral-600 p-content flex flex-col gap-3 transition-all duration-250 items-end",
-					isExpanded ? "w-66" : "w-16.5"
+					"h-full bg-surface-background rounded-menus inset-ring inset-ring-[color:var(--surface-outline)] p-content flex flex-col items-end transition-all duration-250",
+					"gap-[var(--shell-sidebar-gap)]",
+					isExpanded ? "w-[var(--shell-sidebar-width-expanded)]" : "w-[var(--shell-sidebar-width-collapsed)]"
 				)}
 			>
-				<div className="w-full h-15 flex justify-center">
+				<div className="flex h-[var(--shell-sidebar-logo-height)] w-full justify-center">
 					<div className={clsx(
-						"bg-neutral-600 rounded-content relative flex justify-center items-center w-full overflow-hidden",
-						!isExpanded ? "h-14.5" : "h-full"
+						"bg-neutral-800 rounded-content relative flex justify-center items-center w-full overflow-hidden",
+						!isExpanded ? "h-[var(--shell-sidebar-logo-height-collapsed)]" : "h-full"
 					)}>
 						<Image
 							src={logoSrc}
@@ -45,7 +46,8 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 				</div>
 				<div className="relative w-full flex-1 overflow-y-clip">
 					<div ref={scrollRef} className={clsx(
-						"absolute inset-0 flex flex-col gap-0.5 overflow-y-auto scrollbar-thumb-text-500 scrollbar-track-transparent justify-stretch scrollbar-thin pb-0.5",
+						"absolute inset-0 flex flex-col overflow-y-auto scrollbar-thumb-text-500 scrollbar-track-transparent justify-stretch scrollbar-thin",
+						"gap-[var(--shell-sidebar-section-gap)] pb-[var(--shell-sidebar-scroll-padding-bottom)]",
 						// Keep the content aligned when Firefox renders a visible thin scrollbar.
 						isScrollbar && "pr-(--scrollbar-width)"
 					)}>

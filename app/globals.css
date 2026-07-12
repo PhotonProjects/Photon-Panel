@@ -32,6 +32,13 @@
   --color-neutral-900: var(--neutral-900);
   --color-main-background: var(--main-background);
   --color-surface-background: var(--surface-background);
+  --color-surface-outline: var(--surface-outline);
+  --color-surface-subtle-background: var(--surface-subtle-background);
+  --color-surface-subtle-background-hover: var(--surface-subtle-background-hover);
+  --color-separator: var(--separator-color);
+  --color-role-tag-outline: var(--role-tag-outline);
+  --color-role-tag-background: var(--role-tag-background);
+  --color-role-tag-text: var(--role-tag-text);
 
   /* Text */
   --color-text-100: var(--text-100);

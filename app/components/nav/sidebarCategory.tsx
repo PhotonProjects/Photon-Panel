@@ -19,13 +19,13 @@ export default function SidebarCategory({
 
 	if (!isExpanded) {
 		return (
-			<div className="flex flex-col gap-0.5">
+			<div className="flex flex-col gap-[var(--shell-sidebar-section-gap)]">
 				<div
-					className="flex items-center justify-center px-2 py-2"
+					className="flex items-center justify-center px-[var(--sidebar-category-collapsed-padding-x)] py-[var(--sidebar-category-collapsed-padding-y)]"
 					title={name}
 					aria-label={name}
 				>
-					<div className="h-px w-full rounded-full bg-[#4F4D51]" />
+					<div className="h-px w-full rounded-full bg-separator" />
 				</div>
 				{children}
 			</div>
@@ -36,7 +36,13 @@ export default function SidebarCategory({
 		<>
 			<button
 				onClick={() => setExpanded(!expanded)}
-				className="flex w-full group items-center justify-between gap-3 px-1.5 py-content rounded-content inset-ring inset-ring-transparent hover:bg-neutral-400/25 hover:inset-ring-neutral-400/25"
+				className="flex w-full group items-center justify-between rounded-content inset-ring inset-ring-transparent hover:bg-neutral-400/25 hover:inset-ring-neutral-400/25"
+				/* Keep category spacing tokenized so layout tuning stays centralized. */
+				style={{
+					gap: "var(--sidebar-category-gap)",
+					paddingInline: "var(--sidebar-category-padding-x)",
+					paddingBlock: "var(--content-spacing)",
+				}}
 				aria-expanded={expanded}
 			>
 				<p className="text-label text-text-750 uppercase group-hover:text-text-100">
@@ -54,7 +60,7 @@ export default function SidebarCategory({
 				)}
 			>
 				<div className="min-h-0">
-					<div className="flex flex-col gap-0.5 pt-0.5">
+					<div className="flex flex-col gap-[var(--shell-sidebar-section-gap)] pt-[var(--sidebar-category-expanded-inner-padding-top)]">
 						{children}
 					</div>
 				</div>
