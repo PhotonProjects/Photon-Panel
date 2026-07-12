@@ -42,7 +42,6 @@ export default function SidebarCategory({
 				<p className="text-label text-text-750 uppercase group-hover:text-text-100">
 					{name}
 				</p>
-				<div className="h-px flex-1 bg-[#4F4D51]" />
 				<Icon icon="RightArrow" size="18" className={clsx(
 					"shrink-0 text-text-750 group-hover:text-text-100 transition-transform duration-250",
 					expanded && "rotate-90"

@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import Image, { type StaticImageData } from "next/image";
 import type { SVGProps } from "react";
 import ArrowLeft from "@/public/icons/ArrowLeft.svg";
 import Box from "@/public/icons/Box.svg";
@@ -19,6 +20,7 @@ import FolderFilled from "@/public/icons/FolderFilled.svg";
 import Frequency from "@/public/icons/Frequency.svg";
 import Globe from "@/public/icons/Globe.svg";
 import GlobeFilled from "@/public/icons/GlobeFilled.svg";
+import Home from "@/public/icons/Home.svg";
 import Info from "@/public/icons/Info.svg";
 import LayoutClose from "@/public/icons/LayoutClose.svg";
 import LayoutOpen from "@/public/icons/LayoutOpen.svg";
@@ -41,6 +43,7 @@ import UsersFilled from "@/public/icons/UsersFilled.svg";
 import X from "@/public/icons/X.svg";
 
 type IconComponent = (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
+type IconSource = IconComponent | StaticImageData;
 
 const iconMap = {
     ArrowLeft,
@@ -60,6 +63,7 @@ const iconMap = {
     Frequency,
     Globe,
     GlobeFilled,
+    Home,
     Info,
     LayoutClose,
     LayoutOpen,
@@ -80,7 +84,7 @@ const iconMap = {
     Users,
     UsersFilled,
     X,
-} satisfies Record<string, IconComponent>;
+} satisfies Record<string, IconSource>;
 
 export default function Icon({
     filled = null,
@@ -98,9 +102,26 @@ export default function Icon({
     const SvgIcon = iconMap[icon];
     const SvgIconFilled = filled !== null ? iconMap[`${icon}Filled`] : undefined;
     const canSwapToFilledIcon = filled !== null && Boolean(SvgIconFilled);
+    const numericSize = Number(size);
 
     if (!SvgIcon) {
         return null;
+    }
+
+    if (typeof SvgIcon !== "function") {
+        return (
+            <div className="grid">
+                <Image
+                    src={SvgIcon}
+                    alt=""
+                    aria-hidden="true"
+                    width={numericSize}
+                    height={numericSize}
+                    className={clsx("[grid-area:1/1]", className)}
+                    style={style}
+                />
+            </div>
+        );
     }
 
     return (

@@ -22,7 +22,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 		<SidebarContext.Provider value={{ isExpanded, inSidebar: true, toggleSidebar }}>
 			<div
 				className={clsx(
-					"h-full bg-neutral-700 rounded-menus inset-ring inset-ring-neutral-600 p-content flex flex-col gap-3 transition-all duration-250 items-end",
+					"h-full bg-surface-background rounded-menus inset-ring inset-ring-neutral-600 p-content flex flex-col gap-3 transition-all duration-250 items-end",
 					isExpanded ? "w-66" : "w-16.5"
 				)}
 			>

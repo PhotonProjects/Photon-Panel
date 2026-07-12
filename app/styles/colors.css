@@ -1,5 +1,8 @@
 @layer base {
   :root {
+    --main-background: #000000;
+    --surface-background: hsl(265 6% 5% / 100%);
+
     --primary-hue: 265deg;
     --primary-saturation: 81%;
     --primary-lightness-multiply: 1.18;
@@ -56,7 +59,7 @@
       calc(20% * var(--neutral-lightness-multiply))
     );
     --neutral-600: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(13% * var(--neutral-lightness-multiply))
+      calc(8% * var(--neutral-lightness-multiply))
     );
     --neutral-700: hsl(var(--primary-hue) var(--neutral-saturation) 
       calc(10% * var(--neutral-lightness-multiply))

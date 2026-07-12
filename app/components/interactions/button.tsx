@@ -19,6 +19,7 @@ export default function Button({
 	icon = "",
 	title,
 	ariaLabel,
+	className = "",
 	onClick = () => {},
 }: {
 	primary?: boolean,
@@ -33,6 +34,7 @@ export default function Button({
 	icon?: string,
 	title?: string,
 	ariaLabel?: string,
+	className?: string,
 	onClick?: () => void,
 }) {
 	const color = primary ? "primary" : success ? "success" : danger ? "danger" : "neutral";
@@ -70,7 +72,8 @@ export default function Button({
 				"rounded-content p-content gap-content flex items-center group transition-all duration-250",
 				inSidebar && !isExpanded && "justify-center aspect-square size-10.5 p-0",
 				buttonStyle,
-				fillWholeWidth && "w-full"
+				fillWholeWidth && "w-full",
+				className
 			)}
 			aria-label={accessibleLabel}
 			title={hoverLabel}
