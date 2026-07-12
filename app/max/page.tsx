@@ -17,23 +17,23 @@ export default function Max() {
 	return (
 		<div className="flex h-full min-h-0">
 			<Sidebar>
-				<SidebarCategory name="overview">
+				<SidebarCategory name="Overview">
 					<Button primary outlined value="Dashboard" icon={"Console" + "Filled"} />
 				</SidebarCategory>
-				<SidebarCategory name="files">
+				<SidebarCategory name="Files">
 					<Button filledicon value="Files" icon="Folder" />
 					<Button filledicon value="Databases" icon="Database" />
 					<Button filledicon value="Backups" icon="Box" />
 				</SidebarCategory>
-				<SidebarCategory name="server">
+				<SidebarCategory name="Server">
 					<Button filledicon value="Startup" icon="Start" />
 					<Button filledicon value="Schedules" icon="Calendar" />
 				</SidebarCategory>
-				<SidebarCategory name="networking">
+				<SidebarCategory name="Networking">
 					<Button filledicon value="Allocations" icon="Tree" />
 					<Button filledicon value="Subdomains" icon="Globe" />
 				</SidebarCategory>
-				<SidebarCategory name="management">
+				<SidebarCategory name="Management">
 					<Button filledicon value="Settings" icon="Settings" />
 					<Button filledicon value="Users" icon="Users" />
 					<Button filledicon value="Logs" icon="Clock" />
