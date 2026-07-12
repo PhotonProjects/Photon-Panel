@@ -28,18 +28,17 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 			>
 				<div className="w-full h-15 flex justify-center">
 					<div className={clsx(
-						"bg-neutral-600 rounded-content flex justify-center items-center w-full",
+						"bg-neutral-600 rounded-content relative flex justify-center items-center w-full overflow-hidden",
 						!isExpanded ? "h-14.5" : "h-full"
 					)}>
 						<Image
 							src={logoSrc}
 							alt="Photon Panel"
-							width={160}
-							height={56}
+							fill
 							priority
 							className={clsx(
 								"transition-all duration-250",
-								isExpanded ? "w-full h-full object-contain p-3" : "w-8 h-8"
+								isExpanded ? "object-contain" : "object-contain"
 							)}
 						/>
 					</div>
