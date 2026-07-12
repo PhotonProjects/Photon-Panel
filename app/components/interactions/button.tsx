@@ -4,6 +4,7 @@ import clsx from "clsx";
 import Icon from "../interface/icon";
 import { useContext, useState } from "react";
 import { ButtonContext } from "./buttonContext";
+import { SidebarContext } from "../nav/sidebarContext";
 
 export default function Button({
 	primary = false,
@@ -39,6 +40,10 @@ export default function Button({
 
 	const [hovered, setHovered] = useState(false);
 	const {fillWholeWidth} = useContext(ButtonContext);
+	const { inSidebar, isExpanded } = useContext(SidebarContext);
+	const showLabel = value !== "" && (!inSidebar || isExpanded);
+	const accessibleLabel = ariaLabel ?? value ?? undefined;
+	const hoverLabel = title ?? value ?? undefined;
 
 	const buttonStyle = [
 		(variant === "filled" && color == "primary") 			&& "inset-ring inset-ring-transparent bg-primary-500 hover:bg-primary-400 hover:inset-ring-primary-400",
@@ -62,12 +67,13 @@ export default function Button({
 	return (
 		<button
 			className={clsx(
-				"rounded-content p-content gap-content flex items-center group", 
+				"rounded-content p-content gap-content flex items-center group transition-all duration-250",
+				inSidebar && !isExpanded && "justify-center aspect-square size-10.5 p-0",
 				buttonStyle,
 				fillWholeWidth && "w-full"
 			)}
-			aria-label={ariaLabel}
-			title={title}
+			aria-label={accessibleLabel}
+			title={hoverLabel}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			onClick={onClick}
@@ -80,7 +86,7 @@ export default function Button({
 					className={clsx(contentStyle)}
 				/>
 			}
-			{value && 
+			{showLabel && 
 				<p className={clsx(
 					"text-medium",
 					contentStyle

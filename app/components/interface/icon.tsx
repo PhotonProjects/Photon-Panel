@@ -97,6 +97,7 @@ export default function Icon({
 }) {
     const SvgIcon = iconMap[icon];
     const SvgIconFilled = filled !== null ? iconMap[`${icon}Filled`] : undefined;
+    const canSwapToFilledIcon = filled !== null && Boolean(SvgIconFilled);
 
     if (!SvgIcon) {
         return null;
@@ -105,12 +106,16 @@ export default function Icon({
     return (
         <div className="grid">
             <SvgIcon
-                className={clsx("[grid-area:1/1]", filled !== null && (filled ? "opacity-0" : "opacity-100"), className)}
+                className={clsx(
+                    "[grid-area:1/1]",
+                    canSwapToFilledIcon && (filled ? "opacity-0" : "opacity-100"),
+                    className
+                )}
                 width={size}
                 height={size}
                 style={style}
             />
-            {filled !== null && SvgIconFilled && (
+            {canSwapToFilledIcon && SvgIconFilled && (
                 <SvgIconFilled
                     className={clsx("[grid-area:1/1]", filled ? "opacity-100" : "opacity-0", className)}
                     width={size}

@@ -45,7 +45,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 				</div>
 				<div className="relative w-full flex-1 overflow-y-clip">
 					<div ref={scrollRef} className={clsx(
-						"absolute inset-0 flex flex-col gap-0.5 overflow-y-scroll scrollbar-thumb-text-500 scrollbar-track-transparent justify-stretch scrollbar-thin",
+						"absolute inset-0 flex flex-col gap-0.5 overflow-y-auto scrollbar-thumb-text-500 scrollbar-track-transparent justify-stretch scrollbar-thin pb-0.5",
 						// Keep the content aligned when Firefox renders a visible thin scrollbar.
 						isScrollbar && "pr-(--scrollbar-width)"
 					)}>
@@ -58,6 +58,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 					icon={toggleIcon}
 					title={toggleLabel}
 					ariaLabel={toggleLabel}
+					filledicon
 					onClick={toggleSidebar}
 				/>
 			</div>
