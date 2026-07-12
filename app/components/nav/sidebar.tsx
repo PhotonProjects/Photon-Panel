@@ -1,15 +1,16 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Button from "../interactions/button";
 import clsx from "clsx";
 import Image from "next/image";
 import { ButtonContext } from "../interactions/buttonContext";
 import { useScrollbarActive } from "@/app/functions/isScrollbarActive";
 import { SidebarContext } from "./sidebarContext";
+import { usePersistentState } from "@/app/functions/usePersistentState";
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
-	const [isExpanded, setIsExpanded] = useState(true);
+	const [isExpanded, setIsExpanded] = usePersistentState("photon-panel:sidebar-expanded", true);
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const isScrollbar = useScrollbarActive(scrollRef);
 	const toggleSidebar = () => setIsExpanded((currentValue) => !currentValue);

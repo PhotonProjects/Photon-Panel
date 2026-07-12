@@ -1,9 +1,10 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import clsx from "clsx/lite";
 import Icon from "../interface/icon";
 import { SidebarContext } from "./sidebarContext";
+import { usePersistentState } from "@/app/functions/usePersistentState";
 
 export default function SidebarCategory({
 	name,
@@ -12,7 +13,8 @@ export default function SidebarCategory({
 	name: string,
 	children: React.ReactNode,
 }) {
-	const [expanded, setExpanded] = useState(true);
+	const storageKey = `photon-panel:sidebar-category:${name.toLowerCase()}`;
+	const [expanded, setExpanded] = usePersistentState(storageKey, true);
 	const { isExpanded } = useContext(SidebarContext);
 
 	if (!isExpanded) {
