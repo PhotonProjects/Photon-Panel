@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx/lite";
 import Icon from "../interface/icon";
 

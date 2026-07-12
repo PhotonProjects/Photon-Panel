@@ -16,6 +16,8 @@ export default function Button({
 	filledicon = false,
 	value = "",
 	icon = "",
+	title,
+	ariaLabel,
 	onClick = () => {},
 }: {
 	primary?: boolean,
@@ -28,6 +30,8 @@ export default function Button({
 	filledicon?: boolean,
 	value?: string,
 	icon?: string,
+	title?: string,
+	ariaLabel?: string,
 	onClick?: () => void,
 }) {
 	const color = primary ? "primary" : success ? "success" : danger ? "danger" : "neutral";
@@ -62,7 +66,8 @@ export default function Button({
 				buttonStyle,
 				fillWholeWidth && "w-full"
 			)}
-			title={undefined}
+			aria-label={ariaLabel}
+			title={title}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			onClick={onClick}

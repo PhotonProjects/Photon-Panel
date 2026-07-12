@@ -1,3 +1,13 @@
 import { createContext } from "react";
 
-export const SidebarContext = createContext<{sideBarExpanded: boolean, inSideBar: boolean}>({sideBarExpanded: true, inSideBar: false});
+interface SidebarContextType {
+    isExpanded: boolean;
+    inSidebar: boolean;
+    toggleSidebar: () => void;
+}
+
+export const SidebarContext = createContext<SidebarContextType>({
+    isExpanded: true,
+    inSidebar: false,
+    toggleSidebar: () => {},
+});

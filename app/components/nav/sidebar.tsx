@@ -3,40 +3,64 @@
 import { useRef, useState } from "react";
 import Button from "../interactions/button";
 import clsx from "clsx";
+import Image from "next/image";
 import { ButtonContext } from "../interactions/buttonContext";
-import { isScrollbarActive } from "@/app/functions/isScrollbarActive";
+import { useScrollbarActive } from "@/app/functions/isScrollbarActive";
+import { SidebarContext } from "./sidebarContext";
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
-	const [sideBarExpanded, setSidebarExpanded] = useState(true);
+	const [isExpanded, setIsExpanded] = useState(true);
 	const scrollRef = useRef<HTMLDivElement>(null);
-	const isScrollbar = isScrollbarActive(scrollRef);
+	const isScrollbar = useScrollbarActive(scrollRef);
+	const toggleSidebar = () => setIsExpanded((currentValue) => !currentValue);
+	const logoSrc = isExpanded ? "/logos/dark/nobg.png" : "/logos/dark/icon.png";
+	const toggleIcon = isExpanded ? "LayoutClose" : "LayoutOpen";
+	const toggleLabel = isExpanded ? "Collapse sidebar" : "Expand sidebar";
 
 	return (
-		<div
-			className={clsx(
-				"h-full bg-neutral-700 rounded-menus inset-ring inset-ring-neutral-600 p-content flex flex-col gap-3 transition-all duration-250 items-end",
-				sideBarExpanded ? "w-66" : "w-16.5"
-			)}
-		>
-			<div className="w-full h-15 flex justify-center">
-				<div className={clsx(
-					"bg-neutral-600 rounded-content py-5.25 flex justify-center w-full",
-					!sideBarExpanded ? "h-14.5" : "h-full"
-				)}>
-
+		<SidebarContext.Provider value={{ isExpanded, inSidebar: true, toggleSidebar }}>
+			<div
+				className={clsx(
+					"h-full bg-neutral-700 rounded-menus inset-ring inset-ring-neutral-600 p-content flex flex-col gap-3 transition-all duration-250 items-end",
+					isExpanded ? "w-66" : "w-16.5"
+				)}
+			>
+				<div className="w-full h-15 flex justify-center">
+					<div className={clsx(
+						"bg-neutral-600 rounded-content flex justify-center items-center w-full",
+						!isExpanded ? "h-14.5" : "h-full"
+					)}>
+						<Image
+							src={logoSrc}
+							alt="Photon Panel"
+							width={160}
+							height={56}
+							priority
+							className={clsx(
+								"transition-all duration-250",
+								isExpanded ? "w-full h-full object-contain p-3" : "w-8 h-8"
+							)}
+						/>
+					</div>
 				</div>
-			</div>
-			<div className="relative w-full flex-1 overflow-y-clip">
-				<div ref={scrollRef} className={clsx(
-					"absolute inset-0 flex flex-col gap-0.5 overflow-y-scroll scrollbar-thumb-text-500 scrollbar-track-transparent justify-stretch scrollbar-thin",
-					isScrollbar && "pr-(--scrollbar-width)"
-				)}>
-					<ButtonContext.Provider value={{ fillWholeWidth: true }}>
-						{children}
-					</ButtonContext.Provider>
+				<div className="relative w-full flex-1 overflow-y-clip">
+					<div ref={scrollRef} className={clsx(
+						"absolute inset-0 flex flex-col gap-0.5 overflow-y-scroll scrollbar-thumb-text-500 scrollbar-track-transparent justify-stretch scrollbar-thin",
+						// Keep the content aligned when Firefox renders a visible thin scrollbar.
+						isScrollbar && "pr-(--scrollbar-width)"
+					)}>
+						<ButtonContext.Provider value={{ fillWholeWidth: true }}>
+							{children}
+						</ButtonContext.Provider>
+					</div>
 				</div>
+				<Button
+					icon={toggleIcon}
+					title={toggleLabel}
+					ariaLabel={toggleLabel}
+					onClick={toggleSidebar}
+				/>
 			</div>
-			<Button icon="LayoutOpen" onClick={() => setSidebarExpanded(!sideBarExpanded)} />
-		</div>
+		</SidebarContext.Provider>
 	);
 }
