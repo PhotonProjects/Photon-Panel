@@ -48,16 +48,16 @@ export default function Button({
 	const hoverLabel = title ?? value ?? undefined;
 
 	const buttonStyle = [
-		(variant === "filled" && color == "primary") 			&& "inset-ring inset-ring-transparent bg-primary-500 hover:bg-primary-400 hover:inset-ring-primary-400",
+		(variant === "filled" && color == "primary") 			&& "inset-ring inset-ring-transparent bg-inputs-primary hover:bg-inputs-primary-hover hover:inset-ring-inputs-primary-ring",
 		(variant === "filled" && color == "success" )			&& "",
 		(variant === "filled" && color == "danger") 			&& "",
-		(variant === "outlined" && color == "primary")			&& "inset-ring inset-ring-primary-500 bg-primary-600/25 hover:bg-primary-500/25 hover:inset-ring-primary-400 hover:inset-ring-2 focus-visible:ring-2 focus-visible:ring-primary-500/50",
+		(variant === "outlined" && color == "primary")			&& "inset-ring inset-ring-inputs-primary bg-primary-600/25 hover:bg-primary-500/25 hover:inset-ring-inputs-primary-ring hover:inset-ring-2 focus-visible:ring-2 focus-visible:ring-inputs-primary/50",
 		(variant === "outlined" && color == "success") 			&& "",
 		(variant === "outlined" && color == "danger") 			&& "",
-		(variant === "transparent" && color == "neutral")		&& "inset-ring inset-ring-transparent hover:bg-neutral-400/25 hover:inset-ring-neutral-400/25",
+		(variant === "transparent" && color == "neutral")		&& "inset-ring inset-ring-transparent hover:bg-interface-high-surface hover:inset-ring-interface-surface-ring/25",
 	];
 	const contentStyle = [
-		(variant === "filled" && color == "primary") 			&& "text-on-primary",
+		(variant === "filled" && color == "primary") 			&& "text-inputs-on-primary",
 		(variant === "filled" && color == "success" )			&& "",
 		(variant === "filled" && color == "danger") 			&& "",
 		(variant === "outlined" && color == "primary")			&& "text-primary-400 group-hover:text-primary-300",

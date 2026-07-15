@@ -22,14 +22,14 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 		<SidebarContext.Provider value={{ isExpanded, inSidebar: true, toggleSidebar }}>
 			<div
 				className={clsx(
-					"h-full bg-surface-background rounded-menus inset-ring inset-ring-[color:var(--surface-outline)] p-content flex flex-col items-end transition-all duration-250",
+					"h-full bg-interface-surface rounded-menus inset-ring inset-ring-[color:var(--interface-surface-ring)] p-content flex flex-col items-end transition-all duration-250",
 					"gap-[var(--shell-sidebar-gap)]",
 					isExpanded ? "w-[var(--shell-sidebar-width-expanded)]" : "w-[var(--shell-sidebar-width-collapsed)]"
 				)}
 			>
 				<div className="flex h-[var(--shell-sidebar-logo-height)] w-full justify-center">
 					<div className={clsx(
-						"bg-neutral-800 rounded-content relative flex justify-center items-center w-full overflow-hidden",
+						"bg-interface-high-surface rounded-content relative flex justify-center items-center w-full overflow-hidden",
 						!isExpanded ? "h-[var(--shell-sidebar-logo-height-collapsed)]" : "h-full"
 					)}>
 						<Image

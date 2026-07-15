@@ -1,102 +1,146 @@
 @layer base {
   :root {
-    --main-background: hsl(0 0% 0% / 100%);
-    --surface-background: hsl(265 6% 5% / 100%);
-    --surface-outline: hsl(280 5% 8% / 100%);
-    --surface-subtle-background: hsl(280 7% 9% / 100%);
-    --surface-subtle-background-hover: hsl(270 6% 11% / 100%);
-    --separator-color: hsl(285 2% 31% / 100%);
-
-    --role-tag-outline: hsl(205 85% 46% / 100%);
-    --role-tag-background: hsla(205, 85%, 36%, 0);
-    --role-tag-text: hsl(205 85% 58% / 100%);
-
+    /* Primitives: palette controls */
     --primary-hue: 265deg;
     --primary-saturation: 81%;
-    --primary-lightness-multiply: 1.18;
+    --primary-lightness-multiplier: 1.18;
+    --primary-scale-100: 87%;
+    --primary-scale-200: 76%;
+    --primary-scale-300: 67%;
+    --primary-scale-400: 58%;
+    --primary-scale-500: 50%;
+    --primary-scale-600: 35%;
+    --primary-scale-700: 27%;
+    --primary-scale-800: 19%;
+    --primary-scale-900: 11%;
 
+    --neutral-hue: 265deg;
     --neutral-saturation: 7%;
-    --neutral-lightness-multiply: 1.0;
+    --neutral-lightness-multiplier: 1;
+    --neutral-scale-100: 58%;
+    --neutral-scale-200: 37%;
+    --neutral-scale-300: 29%;
+    --neutral-scale-400: 26%;
+    --neutral-scale-500: 20%;
+    --neutral-scale-600: 13%;
+    --neutral-scale-700: 10%;
+    --neutral-scale-800: 7%;
+    --neutral-scale-900: 4%;
 
+    --info-hue: 205deg;
+    --info-saturation: 85%;
+    --info-lightness-multiplier: 1;
+    --info-scale-100: 87%;
+    --info-scale-200: 76%;
+    --info-scale-300: 67%;
+    --info-scale-400: 58%;
+    --info-scale-500: 46%;
+    --info-scale-600: 36%;
+    --info-scale-700: 28%;
+    --info-scale-800: 19%;
+    --info-scale-900: 11%;
+
+    --text-hue: 265deg;
     --text-saturation: 3%;
-    --text-lightness-multiply: 1.0;
+    --text-scale-100: 100%;
+    --text-scale-200: 92%;
+    --text-scale-300: 86%;
+    --text-scale-400: 76%;
+    --text-scale-500: 66%;
+    --text-scale-600: 55%;
+    --text-scale-700: 45%;
+    --text-scale-800: 38%;
+    --text-scale-900: 31%;
 
-    /* Primary */
-    --primary-100: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(87% * var(--primary-lightness-multiply))
-    );
-    --primary-200: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(76% * var(--primary-lightness-multiply))
-    );
-    --primary-300: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(67% * var(--primary-lightness-multiply))
-    );
-    --primary-400: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(58% * var(--primary-lightness-multiply))
-    );
-    --primary-500: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(50% * var(--primary-lightness-multiply))
-    );
-    --primary-600: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(35% * var(--primary-lightness-multiply))
-    );
-    --primary-700: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(27% * var(--primary-lightness-multiply))
-    );
-    --primary-800: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(19% * var(--primary-lightness-multiply))
-    );
-    --primary-900: hsl(var(--primary-hue) var(--primary-saturation) 
-      calc(11% * var(--primary-lightness-multiply))
-    );
+    /* Primitives: primary */
+    --primary-100: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-100) * var(--primary-lightness-multiplier)));
+    --primary-200: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-200) * var(--primary-lightness-multiplier)));
+    --primary-300: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-300) * var(--primary-lightness-multiplier)));
+    --primary-400: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-400) * var(--primary-lightness-multiplier)));
+    --primary-500: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-500) * var(--primary-lightness-multiplier)));
+    --primary-600: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-600) * var(--primary-lightness-multiplier)));
+    --primary-700: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-700) * var(--primary-lightness-multiplier)));
+    --primary-800: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-800) * var(--primary-lightness-multiplier)));
+    --primary-900: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-scale-900) * var(--primary-lightness-multiplier)));
 
-    /* Neutral */
-    --neutral-100: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(58% * var(--neutral-lightness-multiply))
-    );
-    --neutral-200: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(37% * var(--neutral-lightness-multiply))
-    );
-    --neutral-300: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(29% * var(--neutral-lightness-multiply))
-    );
-    --neutral-400: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(26% * var(--neutral-lightness-multiply))
-    );
-    --neutral-500: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(20% * var(--neutral-lightness-multiply))
-    );
-    --neutral-600: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(13% * var(--neutral-lightness-multiply))
-    );
-    --neutral-700: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(10% * var(--neutral-lightness-multiply))
-    );
-    --neutral-800: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(7% * var(--neutral-lightness-multiply))
-    );
-    --neutral-900: hsl(var(--primary-hue) var(--neutral-saturation) 
-      calc(4% * var(--neutral-lightness-multiply))
-    );
+    /* Primitives: success and danger placeholders */
+    --success-100: hsl(150deg 55% 96%);
+    --success-200: hsl(150deg 55% 89%);
+    --success-300: hsl(150deg 55% 79%);
+    --success-400: hsl(150deg 55% 68%);
+    --success-500: hsl(150deg 55% 56%);
+    --success-600: hsl(150deg 55% 44%);
+    --success-700: hsl(150deg 55% 32%);
+    --success-800: hsl(150deg 55% 21%);
+    --success-900: hsl(150deg 55% 12%);
 
-    /* Text */
-    --text-100: hsl(var(--primary-hue) var(--text-saturation) 
-      calc(100% * var(--text-lightness-multiply))
-    );
-    --text-250: hsl(var(--primary-hue) var(--text-saturation) 
-      calc(86% * var(--text-lightness-multiply))
-    );
-    --text-500: hsl(var(--primary-hue) var(--text-saturation) 
-      calc(66% * var(--text-lightness-multiply))
-    );
-    --text-750: hsl(var(--primary-hue) var(--text-saturation) 
-      calc(45% * var(--text-lightness-multiply))
-    );
-    --text-900: hsl(var(--primary-hue) var(--text-saturation) 
-      calc(31% * var(--text-lightness-multiply))
-    );
+    --danger-100: hsl(356deg 70% 96%);
+    --danger-200: hsl(356deg 70% 89%);
+    --danger-300: hsl(356deg 70% 79%);
+    --danger-400: hsl(356deg 70% 68%);
+    --danger-500: hsl(356deg 70% 56%);
+    --danger-600: hsl(356deg 70% 44%);
+    --danger-700: hsl(356deg 70% 32%);
+    --danger-800: hsl(356deg 70% 21%);
+    --danger-900: hsl(356deg 70% 12%);
 
-    /* On-* */
-    --on-primary: contrast-color(var(--primary-500));
+    /* Primitives: background */
+    --neutral-100: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-100) * var(--neutral-lightness-multiplier)));
+    --neutral-200: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-200) * var(--neutral-lightness-multiplier)));
+    --neutral-300: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-300) * var(--neutral-lightness-multiplier)));
+    --neutral-400: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-400) * var(--neutral-lightness-multiplier)));
+    --neutral-500: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-500) * var(--neutral-lightness-multiplier)));
+    --neutral-600: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-600) * var(--neutral-lightness-multiplier)));
+    --neutral-700: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-700) * var(--neutral-lightness-multiplier)));
+    --neutral-800: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-800) * var(--neutral-lightness-multiplier)));
+    --neutral-900: hsl(var(--neutral-hue) var(--neutral-saturation) calc(var(--neutral-scale-900) * var(--neutral-lightness-multiplier)));
+
+    /* Primitives: info */
+    --info-100: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-100) * var(--info-lightness-multiplier)));
+    --info-200: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-200) * var(--info-lightness-multiplier)));
+    --info-300: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-300) * var(--info-lightness-multiplier)));
+    --info-400: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-400) * var(--info-lightness-multiplier)));
+    --info-500: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-500) * var(--info-lightness-multiplier)));
+    --info-600: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-600) * var(--info-lightness-multiplier)));
+    --info-700: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-700) * var(--info-lightness-multiplier)));
+    --info-800: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-800) * var(--info-lightness-multiplier)));
+    --info-900: hsl(var(--info-hue) var(--info-saturation) calc(var(--info-scale-900) * var(--info-lightness-multiplier)));
+
+    /* Primitives: foreground */
+    --text-100: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-100));
+    --text-200: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-200));
+    --text-300: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-300));
+    --text-400: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-400));
+    --text-500: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-500));
+    --text-600: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-600));
+    --text-700: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-700));
+    --text-800: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-800));
+    --text-900: hsl(var(--text-hue) var(--text-saturation) var(--text-scale-900));
+
+    /* Semantics: interface */
+    --interface-background: hsl(0 0% 0% / 100%);
+    --interface-surface: hsl(265 6% 5% / 100%);
+    --interface-surface-ring: hsl(280 5% 8% / 100%);
+    --interface-high-surface: hsl(280 7% 9% / 100%);
+    --interface-high-surface-hover: hsl(270 6% 11% / 100%);
+    --interface-separator: hsl(285 2% 31% / 100%);
+
+    /* Semantics: inputs */
+    --inputs-primary: var(--primary-500);
+    --inputs-primary-hover: var(--primary-400);
+    --inputs-primary-ring: var(--primary-400);
+    --inputs-on-primary: var(--text-900);
+
+    --inputs-secondary: hsl(265 7% 7% / 100%);
+    --inputs-secondary-hover: hsl(265 7% 10% / 100%);
+    --inputs-secondary-ring: hsl(280 5% 8% / 100%);
+    --inputs-on-secondary: var(--text-100);
+
+    /* Semantics: status */
+    --status-info-outline: hsl(205 85% 46% / 100%);
+    --status-info-background: hsla(205, 85%, 36%, 0);
+    --status-info-foreground: hsl(205 85% 58% / 100%);
+
+    --on-primary: var(--inputs-on-primary);
   }
 }

@@ -25,7 +25,7 @@ export default function SidebarCategory({
 					title={name}
 					aria-label={name}
 				>
-					<div className="h-px w-full rounded-full bg-separator" />
+					<div className="h-px w-full rounded-full bg-interface-separator" />
 				</div>
 				{children}
 			</div>
@@ -36,7 +36,7 @@ export default function SidebarCategory({
 		<>
 			<button
 				onClick={() => setExpanded(!expanded)}
-				className="flex w-full group items-center justify-between rounded-content inset-ring inset-ring-transparent hover:bg-neutral-400/25 hover:inset-ring-neutral-400/25"
+				className="flex w-full group items-center justify-between rounded-content inset-ring inset-ring-transparent hover:bg-interface-high-surface hover:inset-ring-interface-surface-ring/25"
 				/* Keep category spacing tokenized so layout tuning stays centralized. */
 				style={{
 					gap: "var(--sidebar-category-gap)",
@@ -45,11 +45,11 @@ export default function SidebarCategory({
 				}}
 				aria-expanded={expanded}
 			>
-				<p className="text-label text-text-750 uppercase group-hover:text-text-100">
+				<p className="text-label text-text-700 uppercase group-hover:text-text-100">
 					{name}
 				</p>
 				<Icon icon="RightArrow" size="18" className={clsx(
-					"shrink-0 text-text-750 group-hover:text-text-100 transition-transform duration-250",
+					"shrink-0 text-text-700 group-hover:text-text-100 transition-transform duration-250",
 					expanded && "rotate-90"
 				)} />
 			</button>

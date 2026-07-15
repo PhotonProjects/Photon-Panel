@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} h-full antialiased bg-main-background`}
+      className={`${inter.variable} h-full antialiased bg-interface-background`}
     >
       <body className="h-dvh flex flex-col p-menus gap-menus">{children}</body>
     </html>
