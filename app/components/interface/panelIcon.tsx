@@ -1,5 +1,7 @@
 "use client";
 
+// Avoid Next.js's reserved `icon.tsx` metadata route convention.
+
 import clsx from "clsx";
 import Image, { type StaticImageData } from "next/image";
 import type { SVGProps } from "react";
@@ -86,6 +88,8 @@ const iconMap = {
     X,
 } satisfies Record<string, IconSource>;
 
+export type IconName = keyof typeof iconMap;
+
 export default function Icon({
     filled = null,
     icon,
@@ -94,13 +98,17 @@ export default function Icon({
     style = {}
 }: {
     filled?: boolean | null,
-    icon: string,
+    icon: IconName,
     size: string,
     className?: string,
     style?: React.CSSProperties
 }) {
     const SvgIcon = iconMap[icon];
-    const SvgIconFilled = filled !== null ? iconMap[`${icon}Filled`] : undefined;
+    const filledIconName = `${icon}Filled`;
+    const SvgIconFilled =
+        filled !== null && filledIconName in iconMap
+            ? iconMap[filledIconName as IconName]
+            : undefined;
     const canSwapToFilledIcon = filled !== null && Boolean(SvgIconFilled);
     const numericSize = Number(size);
 

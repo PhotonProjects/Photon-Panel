@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import Icon from "../interface/icon";
+import Icon, { type IconName } from "../interface/panelIcon";
 import { useContext, useState } from "react";
 import { ButtonContext } from "./buttonContext";
 import { SidebarContext } from "../nav/sidebarContext";
@@ -16,7 +16,7 @@ export default function Button({
 
 	filledicon = false,
 	value = "",
-	icon = "",
+	icon,
 	title,
 	ariaLabel,
 	className = "",
@@ -31,7 +31,7 @@ export default function Button({
 
 	filledicon?: boolean,
 	value?: string,
-	icon?: string,
+	icon?: IconName,
 	title?: string,
 	ariaLabel?: string,
 	className?: string,

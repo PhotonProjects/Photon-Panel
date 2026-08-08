@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import clsx from "clsx/lite";
-import Icon from "../interface/icon";
+import Icon from "../interface/panelIcon";
 import { SidebarContext } from "./sidebarContext";
 import { usePersistentState } from "@/app/functions/usePersistentState";
 

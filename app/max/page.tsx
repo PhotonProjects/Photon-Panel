@@ -18,7 +18,7 @@ export default function Max() {
 		<div className="flex h-full min-h-0">
 			<Sidebar>
 				<SidebarCategory name="Overview">
-					<Button primary outlined value="Dashboard" icon={"Console" + "Filled"} />
+					<Button primary outlined value="Dashboard" icon="ConsoleFilled" />
 				</SidebarCategory>
 				<SidebarCategory name="Files">
 					<Button filledicon value="Files" icon="Folder" />
