@@ -1,9 +1,4 @@
-"use client";
-
-// Avoid Next.js's reserved `icon.tsx` metadata route convention.
-
 import clsx from "clsx";
-import Image, { type StaticImageData } from "next/image";
 import type { SVGProps } from "react";
 import ArrowLeft from "@/public/icons/ArrowLeft.svg";
 import Box from "@/public/icons/Box.svg";
@@ -23,9 +18,17 @@ import Frequency from "@/public/icons/Frequency.svg";
 import Globe from "@/public/icons/Globe.svg";
 import GlobeFilled from "@/public/icons/GlobeFilled.svg";
 import Home from "@/public/icons/Home.svg";
+import Eye from "@/public/icons/Eye.svg";
+import EyeOff from "@/public/icons/EyeOff.svg";
 import Info from "@/public/icons/Info.svg";
+import Key from "@/public/icons/Key.svg";
+import KeyOff from "@/public/icons/KeyOff.svg";
 import LayoutClose from "@/public/icons/LayoutClose.svg";
 import LayoutOpen from "@/public/icons/LayoutOpen.svg";
+import LogIn from "@/public/icons/LogIn.svg";
+import Mail from "@/public/icons/Mail.svg";
+import Monitor from "@/public/icons/Monitor.svg";
+import Moon from "@/public/icons/Moon.svg";
 import Notification from "@/public/icons/Notification.svg";
 import Play from "@/public/icons/Play.svg";
 import Restart from "@/public/icons/Restart.svg";
@@ -45,7 +48,6 @@ import UsersFilled from "@/public/icons/UsersFilled.svg";
 import X from "@/public/icons/X.svg";
 
 type IconComponent = (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
-type IconSource = IconComponent | StaticImageData;
 
 const iconMap = {
     ArrowLeft,
@@ -66,9 +68,17 @@ const iconMap = {
     Globe,
     GlobeFilled,
     Home,
+    Eye,
+    EyeOff,
     Info,
+    Key,
+    KeyOff,
     LayoutClose,
     LayoutOpen,
+    LogIn,
+    Mail,
+    Monitor,
+    Moon,
     Notification,
     Play,
     Restart,
@@ -86,72 +96,56 @@ const iconMap = {
     Users,
     UsersFilled,
     X,
-} satisfies Record<string, IconSource>;
+} satisfies Record<string, IconComponent>;
 
 export type IconName = keyof typeof iconMap;
 
-export default function Icon({
-    filled = null,
+interface PanelIconProps {
+    filled?: boolean;
+    fillOnHover?: boolean;
+    icon: IconName;
+    size?: string;
+    className?: string;
+    style?: React.CSSProperties;
+}
+
+export default function PanelIcon({
+    filled = false,
+    fillOnHover = false,
     icon,
-    size,
+    size = "var(--icon-size-default)",
     className = "",
-    style = {}
-}: {
-    filled?: boolean | null,
-    icon: IconName,
-    size: string,
-    className?: string,
-    style?: React.CSSProperties
-}) {
+    style = {},
+}: PanelIconProps) {
     const SvgIcon = iconMap[icon];
     const filledIconName = `${icon}Filled`;
     const SvgIconFilled =
-        filled !== null && filledIconName in iconMap
+        (filled || fillOnHover) && filledIconName in iconMap
             ? iconMap[filledIconName as IconName]
             : undefined;
-    const canSwapToFilledIcon = filled !== null && Boolean(SvgIconFilled);
-    const numericSize = Number(size);
-
-    if (!SvgIcon) {
-        return null;
-    }
-
-    if (typeof SvgIcon !== "function") {
-        return (
-            <div className="grid">
-                <Image
-                    src={SvgIcon}
-                    alt=""
-                    aria-hidden="true"
-                    width={numericSize}
-                    height={numericSize}
-                    className={clsx("[grid-area:1/1]", className)}
-                    style={style}
-                />
-            </div>
-        );
-    }
-
+    const canSwapToFilledIcon = Boolean(SvgIconFilled);
     return (
         <div className="grid">
             <SvgIcon
                 className={clsx(
                     "[grid-area:1/1]",
-                    canSwapToFilledIcon && (filled ? "opacity-0" : "opacity-100"),
-                    className
+                    canSwapToFilledIcon && filled && "opacity-0",
+                    canSwapToFilledIcon && fillOnHover && "group-hover:opacity-0",
+                    className,
                 )}
-                width={size}
-                height={size}
-                style={style}
+                style={{ width: size, height: size, ...style }}
             />
             {canSwapToFilledIcon && SvgIconFilled && (
                 <SvgIconFilled
-                    className={clsx("[grid-area:1/1]", filled ? "opacity-100" : "opacity-0", className)}
-                    width={size}
-                    height={size}
-                    style={style}
+                    className={clsx(
+                        "[grid-area:1/1]",
+                        !filled && "opacity-0",
+                        fillOnHover && "group-hover:opacity-100",
+                        className,
+                    )}
+                    style={{ width: size, height: size, ...style }}
                 />
             )}
         </div>
-    )
+    );
 }

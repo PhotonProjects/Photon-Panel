@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "./styles/colors.css";
+@import "./styles/spacing.css";
 @import "./styles/layout.css";
+@import "./styles/rings.css";
 @import "./styles/typography.css";
 
 @theme inline {
@@ -83,7 +85,7 @@
   --color-inputs-on-secondary: var(--inputs-on-secondary);
 
   /* Semantic status */
-  --color-status-info-outline: var(--status-info-outline);
+  --color-status-info-ring: var(--status-info-ring);
   --color-status-info-background: var(--status-info-background);
   --color-status-info-foreground: var(--status-info-foreground);
 
@@ -101,18 +103,11 @@
   /* On-* */
   --color-on-primary: var(--on-primary);
 
-  /*            Layout            */
-  --radius-menus: var(--menus-radius);
-  --radius-content: var(--content-radius);
-  --spacing-menus: var(--menus-spacing);
-  --spacing-content: var(--content-spacing);
-
-  /* Testing */
-  --color-red: #FF0000;
 }
 
 @layer base {
   :focus-visible {
+    outline: none;
     @apply inset-ring-2 inset-ring-inputs-primary-ring;
   }
 }

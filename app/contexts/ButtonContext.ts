@@ -1,9 +1,9 @@
 import { createContext } from "react";
 
 interface ButtonContextType {
-    fillWholeWidth?: boolean
+    fillWholeWidth: boolean;
 }
 
 export const ButtonContext = createContext<ButtonContextType>({
-    fillWholeWidth: false
+    fillWholeWidth: false,
 });

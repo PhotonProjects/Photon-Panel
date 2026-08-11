@@ -5,3 +5,7 @@
 .text-medium {
   @apply text-[14.5px] font-medium tracking-normal leading-4 font-inter;
 }
+
+.text-form-label {
+  @apply text-[13px] font-medium tracking-normal leading-4 font-inter;
+}

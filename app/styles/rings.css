@@ -1,0 +1,6 @@
+@layer base {
+  :root {
+    --radius-default: 1rem;
+    --radius-medium: 0.5rem;
+  }
+}

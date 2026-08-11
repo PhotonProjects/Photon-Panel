@@ -125,6 +125,19 @@
     --interface-high-surface-hover: hsl(270 6% 11% / 100%);
     --interface-separator: hsl(285 2% 31% / 100%);
 
+    /* Semantics: authentication */
+    --authentication-background: rgb(5 5 5 / 100%);
+    --authentication-surface: rgb(13 12 14 / 100%);
+    --authentication-elevated-surface: rgb(20 19 22 / 100%);
+    --authentication-surface-ring: rgb(16 15 18 / 100%);
+    --authentication-field-ring: rgb(38 36 42 / 100%);
+    --authentication-control-ring: rgb(97 92 107 / 100%);
+    --authentication-primary: rgb(136 62 239 / 100%);
+    --authentication-primary-hover: rgb(147 76 242 / 100%);
+    --authentication-primary-ring: rgb(74 37 126 / 100%);
+    --authentication-primary-muted: rgb(26 8 44 / 100%);
+    --authentication-label: rgb(163 163 164 / 100%);
+
     /* Semantics: inputs */
     --inputs-primary: var(--primary-500);
     --inputs-primary-hover: var(--primary-400);
@@ -137,7 +150,7 @@
     --inputs-on-secondary: var(--text-100);
 
     /* Semantics: status */
-    --status-info-outline: hsl(205 85% 46% / 100%);
+    --status-info-ring: hsl(205 85% 46% / 100%);
     --status-info-background: hsla(205, 85%, 36%, 0);
     --status-info-foreground: hsl(205 85% 58% / 100%);
 
